@@ -70,6 +70,19 @@ pub contract MetadataViews {
         }
     }
 
+    /// Files is an optional view for collections that contain multiple files
+    ///
+    pub struct Files {
+
+        /// An arbitrary-sized list for any number of editions
+        /// that the NFT might be a part of
+        pub let fileList : {String: &{MetadataViews.File}}
+
+        init(_ fileList: {String: &{MetadataViews.File}}) {
+            self.fileList=fileList
+        }
+    }
+
     /// File is a generic interface that represents a file stored on or off chain.
     ///
     /// Files can be used to references images, videos and other media.
